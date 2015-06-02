@@ -12,4 +12,4 @@ describe 'numbersapi', ->
     require('../src/numbersapi')(@robot)
 
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/numbersapi ([0-9])/i)
+    expect(@robot.respond).to.have.been.calledWith(/numbersapi ([0-9]+)/i)
