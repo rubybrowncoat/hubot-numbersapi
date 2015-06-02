@@ -14,7 +14,7 @@
 #   Víctor San Martín
 
 module.exports = (robot) ->
-  robot.respond /numbersapi ([0-9])/i, (msg) ->
+  robot.respond /numbersapi ([0-9]+)/i, (msg) ->
     msg
       .http("http://numbersapi.com/" + msg.match[1])
       .get() (err, res, body) ->
