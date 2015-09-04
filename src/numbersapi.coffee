@@ -14,11 +14,20 @@
 #   Víctor San Martín
 
 module.exports = (robot) ->
-  robot.respond /numbersapi ([0-9]+)/i, (msg) ->
+  robot.respond /number ([0-9]+|random)\s?(trivia|math|date|year)?/i, (msg) ->
     msg
-      .http("http://numbersapi.com/" + msg.match[1])
+      .http("http://numbersapi.com/" + msg.match[1] + "/" + ( msg.match[2] || "" ))
       .get() (err, res, body) ->
         if err?
           throw err
         else
-          msg.send body
+          msg.reply body
+
+  robot.respond /number ([0-9]+)\/([0-9]+)\s?(trivia|math|date|year)?/i, (msg) ->
+    msg
+      .http("http://numbersapi.com/" + msg.match[2] + "/" + msg.match[1] + "/" + ( msg.match[3] || "" ))
+      .get() (err, res, body) ->
+        if err?
+          throw err
+        else
+          msg.reply body
