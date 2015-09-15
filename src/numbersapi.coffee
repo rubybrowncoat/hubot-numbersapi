@@ -8,7 +8,8 @@
 #   none
 #
 # Commands:
-#   numbersapi
+#   number <number> [trivia|math|date|year]
+#   number <day>/<month> [date]
 #
 # Author:
 #   Víctor San Martín
